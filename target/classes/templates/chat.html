@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Ventana de Chat</title>
+
+<!-- https://cdnjs.com/libraries/sockjs-client -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<!-- https://cdnjs.com/libraries/stomp.js/ -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+	<!-- Image and text -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#"> 
+		<img
+			src="https://cdn0.iconfinder.com/data/icons/web-related/72/__chat_bot._bots_roboto_spam_spam_check_automated_assistant-512.png" width="30"
+			height="30" class="d-inline-block align-top" alt=""> Bienvenido al Chat, <span id="username" th:utext="${username}"></span>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" href="#">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Salir</a>
+				</li>
+			</ul>
+		</div>
+		
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col col-lg-9 col-sm-12 col-xs-12">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">
+							<ul id="messageArea" style="overflow-y: scroll; height: 400px;">
+						</h5>
+						<h6 class="card-subtitle mb-2 text-muted">
+							<div id="connecting">Conectando ...</div>
+						</h6>
+						<p class="card-text">
+						<form id="messageForm" name="messageForm">
+							<div class="input-message">
+								<input type="text" id="message" class="message" autocomplete="off" placeholder="Escribe un mensaje ..." />
+								<button type="submit" class="btn btn-success">Enviar</button>
+							</div>
+						</form>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col col-lg-3 col-sm-12 col-xs-12">
+			<div class="card">
+				<div class="card-title">
+					<h5 class="text-center"><strong>Usuarios conectados</strong></h5>
+				</div>
+				<div class="card-body">
+					<ul id="listaUsuarios">
+					</ul>
+				</div>
+			</div>
+			</div>
+		</div>
+		
+	</div>
+	<script th:src="@{/js/main.js}"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body>
+</html>

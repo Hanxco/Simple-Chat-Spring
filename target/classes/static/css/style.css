@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("https://ak6.picdn.net/shutterstock/videos/16825756/thumb/1.jpg");
+	background-position: top;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat : repeat-x;
+}
+
+.mt-2{
+	margin-top:20px;
+}
+
+.messageForm {
+	line-height: 2.5px;
+	width: 700px;
+}
